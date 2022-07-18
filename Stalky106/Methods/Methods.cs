@@ -177,7 +177,10 @@ namespace Stalky106
 			disableFor = Time.time + 10f;
 			if (!plugin.Translation.RoleDisplayNames.TryGetValue(target.Role, out string className))
 			{
-				className = defaultRoleNames[(int)target.Role.Type];
+				if ((int)target.Role.Type < defaultRoleNames.Length)
+					className = defaultRoleNames[(int)target.Role.Type];
+				else
+					className = "Unknown";
 			}
 
 			;
